@@ -10,7 +10,7 @@
 
 
 
-def ReadFile():
+def readFile():
   """reads the correctly spelled words from the given 'words.txt' file
      saves and returns a set"""
   wordsfile=file('words.txt')
@@ -39,7 +39,10 @@ while not infile:
 outfilename=infilename.strip('.txt')
 outfilename=outfilename+'Chk.txt'
 outfile=file(outfilename,'w')
+print outfilename
 
-ReadFile()
+setofCorrectWords=readFile()
 
+for i in setofCorrectWords:
+  print i
 
