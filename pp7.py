@@ -8,7 +8,7 @@
 
 '''Honor Code Statement: In keeping with the honor code policies of St.Louis University, the Department of Mathematics and Computer Science, I affirm that I have neither given nor received assistance on this programming assignment. This assignment represents my individual, original effort.'''
 
-
+#function definitions
 
 def readFile():
   """reads the correctly spelled words from the given 'words.txt' file
@@ -23,9 +23,11 @@ def readFile():
   wordsfile.close()
   return wordset
 
-#receive the name of file to check and make output file name
+def validateWord(word,correctWords):
+  
 
- 
+#main body of program
+#receive the name of file to check and make output file name
 
 infile=None
 while not infile:
