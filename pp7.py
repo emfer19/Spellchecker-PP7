@@ -32,6 +32,7 @@ def validateWord(word,correctSet):
      3. if the two words are not equal in length but are both longer than 3 characters and 
         the first three letters of the words are the same, add an entry to the dictionary"""
   replacements={} #create a dictionary for replacement words
+  entry=0
   if word in correctSet:
     return replacements
   elif word not in correctSet:
@@ -41,12 +42,16 @@ def validateWord(word,correctSet):
       for w in correctSet:
         if len(word)==len(w):
           counter=0
-          if counter!=4:
-            for i in word, w:
-              if i==i:
-                counter+=1
-          replacements[word]=w
-          return replacements
+          for i in range(len(word)):
+            if word[i]==w[i]:
+              counter+=1
+          if counter>=4:
+            entry+=1
+            replacements[entry]=w  
+        elif len(word)!=len(w) and len(word)>3 and len(w)>3:
+          if word[0]==w[0] and word[1]==w[1] and word[2]==w[2]:
+            entry+=1
+            replacements[entry]=w
   return replacements
 
 
@@ -75,4 +80,8 @@ while line:
   for w in words:
     correct=validateWord(w,setofCorrectWords)
   line=infile.readline()
-  print correct
+
+aword='scientst'
+replacementDict=validateWord(aword,setofCorrectWords)
+for keys,values in replacementDict.items():
+  print 'option',str(keys),values
